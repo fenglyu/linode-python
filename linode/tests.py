@@ -11,9 +11,15 @@ class ApiTest(unittest.TestCase):
 
     def testAvailLinodeplans(self):
         available_plans = self.linode.avail_linodeplans()
-        pprint("plans:%s\n" % available_plans)
+        pprint("available plans")
         map(pprint, available_plans)
         self.assertTrue(isinstance(available_plans, list))
+
+    def testAvailLinodedcs(self):
+        available_dc = self.linode.avail_datacenters()
+        pprint("available datacenter")
+        map(pprint, available_dc)
+        self.assertTrue(isinstance(available_dc, list))
 
     def testEcho(self):
         test_parameters = {'FOO': 'bar', 'FIZZ': 'buzz'}
