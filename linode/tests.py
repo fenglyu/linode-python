@@ -2,6 +2,7 @@ import api
 import unittest
 import os
 from getpass import getpass
+from pprint import pprint
 
 class ApiTest(unittest.TestCase):
 
@@ -10,6 +11,8 @@ class ApiTest(unittest.TestCase):
 
     def testAvailLinodeplans(self):
         available_plans = self.linode.avail_linodeplans()
+        pprint("plans:%s\n" % available_plans)
+        map(pprint, available_plans)
         self.assertTrue(isinstance(available_plans, list))
 
     def testEcho(self):
