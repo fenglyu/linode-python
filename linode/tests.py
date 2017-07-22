@@ -21,6 +21,17 @@ class ApiTest(unittest.TestCase):
         map(pprint, available_dc)
         self.assertTrue(isinstance(available_dc, list))
 
+    def testAvailKernels(self):
+        available_kernels = self.linode.avail_kernels()
+        pprint("available kernels")
+        map(pprint, available_kernels)
+
+    def testLinodeList(self):
+        avail_distributions = self.linode.avail_distributions()
+        pprint("available distributions")
+        map(pprint, avail_distributions)
+
+
     def testEcho(self):
         test_parameters = {'FOO': 'bar', 'FIZZ': 'buzz'}
         response = self.linode.test_echo(**test_parameters)
